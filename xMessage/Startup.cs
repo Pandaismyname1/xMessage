@@ -28,6 +28,7 @@ namespace xMessage
         {
             services.AddMvc()
                 .AddNewtonsoftJson();
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +50,7 @@ namespace xMessage
             {
                 routes.MapControllers();
             });
+            app.UseSwagger().UseSwaggerUi3();
 
             app.UseAuthorization();
         }
