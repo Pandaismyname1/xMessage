@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Infrastructure;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,7 @@ namespace xMessage
     {
         public static void Main(string[] args)
         {
+            CreateDB();
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -24,5 +26,13 @@ namespace xMessage
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        private static void CreateDB()
+        {
+            using (var context = new AppDbContext())
+            {
+                // Creates the database if not exists
+                context.Database.EnsureCreated();
+            }
+        }
     }
 }

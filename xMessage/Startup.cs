@@ -1,16 +1,15 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Core.Repositories;
+using Core.Services;
+using Infrastructure;
+using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Services;
 
 namespace xMessage
 {
@@ -26,6 +25,17 @@ namespace xMessage
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>();
+            services.AddScoped<DbContext, AppDbContext>();
+
+            services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddTransient<IAuthKeyRepository, AuthKeyRepository>();
+            services.AddTransient<IContactLinkageRepository,ContactLinkageRepository>();
+
+            services.AddScoped<IAccountService,AccountService>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IContactLinkageService,ContactLinkageService>();
+
             services.AddMvc()
                 .AddNewtonsoftJson();
             services.AddSwaggerDocument();
