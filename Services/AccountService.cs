@@ -24,6 +24,7 @@ namespace Services
             {
                 response.Success = false;
                 response.Errors.Add("Email Already exists");
+                return response;
             }
             _accountRepository.AddAccount(request.Email, request.Password);
             response.Success = true;
