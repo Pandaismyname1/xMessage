@@ -1,0 +1,27 @@
+<mat-card>
+	<mat-tab-group>
+	<mat-tab label="Login">
+		<div>
+			<mat-form-field>
+				<input matInput placeholder="Email Address" [(ngModel)]="loginEmailAddress">
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Password" type="password" [(ngModel)]="loginPassword">
+			</mat-form-field>
+			<button mat-raised-button color="primary" (click)="appStateService.login(loginEmailAddress,loginPassword)">Login</button>
+		</div>
+
+	</mat-tab>
+	<mat-tab label="Register">
+		<div>
+			<mat-form-field>
+				<input matInput placeholder="Email Address" [(ngModel)]="registerEmailAddress">
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Password" type="password" [(ngModel)]="registerPassword">
+			</mat-form-field>
+			<button mat-raised-button color="primary" (click)="appStateService.register(registerEmailAddress,registerPassword)">Register</button>
+		</div>
+	</mat-tab>
+</mat-tab-group>
+</mat-card>

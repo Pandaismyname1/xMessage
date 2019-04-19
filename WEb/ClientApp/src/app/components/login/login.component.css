@@ -1,0 +1,17 @@
+mat-tab-group {
+    width: 20em;
+    height: 30em;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+}
+mat-card{
+    position: absolute;
+    top: 20em;
+    width: 20em;
+    height: 30em;
+    left: 50%;
+    margin-left: -10em;
+}

@@ -1,6 +1,6 @@
 {
-  "Url": "localhost",
-  "Database": "xMessage",
-  "User": "admin",
-  "Password": "123456"
+  "Url": "remotemysql.com",
+  "Database": "Y6A4HYgDtx",
+  "User": "Y6A4HYgDtx",
+  "Password": "VhfbtIy8pU"
 }
