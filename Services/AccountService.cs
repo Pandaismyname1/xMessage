@@ -19,9 +19,14 @@ namespace Services
         public AddAccountResponse AddAccount(AddAccountRequest request)
         {
             AddAccountResponse response = new AddAccountResponse();
+            response.Errors = new List<string>();
+            if (_accountRepository.GetAccountByEmail(request.Email) != null)
+            {
+                response.Success = false;
+                response.Errors.Add("Email Already exists");
+            }
             _accountRepository.AddAccount(request.Email, request.Password);
             response.Success = true;
-            response.Errors = new List<string>();
             return response;
         }
     }

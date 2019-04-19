@@ -1,1 +1,2 @@
-<app-login></app-login>
+<app-login *ngIf="!appStateService.loggedIn"></app-login>
+<app-dashboard *ngIf="appStateService.loggedIn"></app-dashboard>

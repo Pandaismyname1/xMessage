@@ -35,7 +35,7 @@ namespace Infrastructure.Repositories
                         where entity.Email.ToLower() == email.ToLower()
                         select entity;
             var result = query.ToList();
-            if (result.Count == 1)
+            if (result.Count >= 1)
                 return result[0];
             return null;
         }
