@@ -1,2 +1,2 @@
-# xMessageServer
-xMessage Server Project
+# xMessage
+xMessage Project
