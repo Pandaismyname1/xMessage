@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
@@ -7,8 +8,10 @@ namespace Core.Entities
         [Key]
         public int ContactLinkageId { get; set; }
         [Required]
+        [ForeignKey("Account")]
         public int Account1Id { get; set; }
         [Required]
+        [ForeignKey("Account")]
         public int Account2Id { get; set; }
     }
 }

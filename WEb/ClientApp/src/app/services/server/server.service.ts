@@ -6,7 +6,7 @@ import {HttpHeaders} from '@angular/common/http';
 })
 export class ServerService {
 
-    serverUrl = 'https://xmessage20190419031736.azurewebsites.net/';
+    serverUrl = 'https://localhost:5001/';
     requestHeaders = new HttpHeaders({'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'DELETE, POST, PUT, GET',
